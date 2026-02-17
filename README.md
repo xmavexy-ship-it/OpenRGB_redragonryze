@@ -51,6 +51,7 @@ This project interacts directly with hardware using reverse engineered protocols
 ## Setup Device Access
 
   * After installing OpenRGB, please see the [SMBus Access](Documentation/SMBusAccess.md) and [USB Access](Documentation/USBAccess.md) pages for instructions on setting up access to your RGB devices.
+  * For Linux Mint setup/verification of Redragon Ryze keyboards, see [Redragon Ryze on Linux Mint](Documentation/RedragonRyze.md).
 
 ## Join Our Discord
 

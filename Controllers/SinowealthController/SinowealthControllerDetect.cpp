@@ -40,6 +40,7 @@
 #define Everest_GT100_PID                   0x0029
 #define ZET_FURY_PRO_PID                    0x1007
 #define Fl_Esports_F11_PID                  0x0049
+#define REDRAGON_K616_RYZE_PID              0x0049
 #define RGB_KEYBOARD_0016PID                0x0016
 #define GENESIS_THOR_300_PID                0x0090
 #define GENESIS_XENON_200_PID               0x1007
@@ -463,6 +464,7 @@ REGISTER_HID_DETECTOR_PU("Glorious Model D / D- Wireless",  DetectGMOW_Dongle,  
 REGISTER_HID_DETECTOR_PU("Glorious Model D / D- Wireless",  DetectGMOW_Cable,                   SINOWEALTH_VID, Glorious_Model_DW_PID2,                 0xFFFF, 0x0000  );
 REGISTER_HID_DETECTOR_PU("Genesis Xenon 200",               DetectGenesisXenon200,              SINOWEALTH_VID, GENESIS_XENON_200_PID,                  0xFF00, 1       );
 REGISTER_HID_DETECTOR_IPU("Genesis Thor 300",               DetectSinowealthGenesisKeyboard,    SINOWEALTH_VID, GENESIS_THOR_300_PID,               1,  0xFF00, 1       );
+REGISTER_HID_DETECTOR_IPU("Redragon K616 Ryze (BY Tech)",    DetectSinowealthGenesisKeyboard,    SINOWEALTH_VID, REDRAGON_K616_RYZE_PID,             1,  0xFF00, 1       );
 REGISTER_HID_DETECTOR_IPU("Sinowealth Keyboard",            DetectSinowealthKeyboard10c,        SINOWEALTH_VID, RGB_KEYBOARD_010CPID,               1,  0xFF00, 1       );
 
 // Sinowealth keyboards are disabled due to VID/PID pairs being reused from Redragon keyboards, which ended up in bricking the latter
@@ -479,6 +481,7 @@ REGISTER_HID_DETECTOR_I("Glorious Model D / D- Wireless",   DetectGMOW_Dongle,  
 REGISTER_HID_DETECTOR_I("Glorious Model D / D- Wireless",   DetectGMOW_Cable,                   SINOWEALTH_VID, Glorious_Model_DW_PID2,             2);
 REGISTER_HID_DETECTOR_I("Genesis Xenon 200",                DetectGenesisXenon200,              SINOWEALTH_VID, GENESIS_XENON_200_PID,              1);
 REGISTER_HID_DETECTOR_I("Genesis Thor 300",                 DetectSinowealthGenesisKeyboard,    SINOWEALTH_VID, GENESIS_THOR_300_PID,               1);
+REGISTER_HID_DETECTOR_I("Redragon K616 Ryze (BY Tech)",     DetectSinowealthGenesisKeyboard,    SINOWEALTH_VID, REDRAGON_K616_RYZE_PID,             1);
 
 //REGISTER_HID_DETECTOR_I("FL ESPORTS F11",                   DetectSinowealthKeyboard,   SINOWEALTH_VID, Fl_Esports_F11_PID,                         1);
 //REGISTER_HID_DETECTOR_I("Sinowealth Keyboard",              DetectSinowealthKeyboard16, SINOWEALTH_VID, RGB_KEYBOARD_0016PID,                       1);

@@ -35,10 +35,11 @@ static unsigned int keys[] = {0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x
                               0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x61, 0x62,
                               0x63 };
 
-SteelSeriesApexController::SteelSeriesApexController(hid_device* dev_handle, steelseries_type type, const char* path, std::string dev_name) : SteelSeriesApexBaseController(dev_handle, path, dev_name)
+SteelSeriesApexController::SteelSeriesApexController(hid_device* dev_handle, steelseries_type type, unsigned short pid, const char* path, std::string dev_name) : SteelSeriesApexBaseController(dev_handle, path, dev_name)
 {
     proto_type = type;
     use_new_protocol = false;
+    usb_pid          = pid;
 
     SendInitialization();
 }
@@ -72,8 +73,7 @@ void SteelSeriesApexController::SetLEDsDirect(std::vector<RGBColor> colors)
 
     if(use_new_protocol)
     {
-        struct hid_device_info* info = hid_get_device_info(dev);
-        if(info && (info->product_id == 0x162C || info->product_id == 0x162D)) // Aparently Gen 3 wireless models reuse this protocol, make sure to place their PID here and further below when developing.
+        if(usb_pid == 0x162C || usb_pid == 0x162D) // Aparently Gen 3 wireless models reuse this protocol, make sure to place their PID here and further below when developing.
         {
              packet_id = APEX_2023_PACKET_ID_DIRECT_WIRELESS;
         }
@@ -140,8 +140,7 @@ void SteelSeriesApexController::SendInitialization()
     int res = 0;
     char version_str[32] = "Unknown";
 
-    struct hid_device_info* info = hid_get_device_info(dev);
-    unsigned short pid = (info) ? info->product_id : 0;
+    unsigned short pid = usb_pid;
 
     // Firmware check
     if(pid == 0x1628)

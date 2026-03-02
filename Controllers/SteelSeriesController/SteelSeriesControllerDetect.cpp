@@ -244,7 +244,7 @@ void DetectSteelSeriesApex(hid_device_info* info, const std::string& name)
 
     if(dev)
     {
-        SteelSeriesApexController*     controller     = new SteelSeriesApexController(dev, APEX, info->path, name);
+        SteelSeriesApexController*     controller     = new SteelSeriesApexController(dev, APEX, info->product_id, info->path, name);
         RGBController_SteelSeriesApex* rgb_controller = new RGBController_SteelSeriesApex(controller);
 
         ResourceManager::get()->RegisterRGBController(rgb_controller);

@@ -33,7 +33,7 @@ enum
 class SteelSeriesApexController : public SteelSeriesApexBaseController
 {
 public:
-    SteelSeriesApexController(hid_device* dev_handle, steelseries_type type, const char* path, std::string dev_name);
+    SteelSeriesApexController(hid_device* dev_handle, steelseries_type type, unsigned short pid, const char* path, std::string dev_name);
     ~SteelSeriesApexController();
 
     void SetMode
@@ -55,5 +55,6 @@ private:
 
     void    SendInitialization();
 
-    bool    use_new_protocol;
+    bool            use_new_protocol;
+    unsigned short  usb_pid;
 };
